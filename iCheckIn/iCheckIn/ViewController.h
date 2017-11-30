@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "GoogleLogInView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<NSObject>
 
 
 @end

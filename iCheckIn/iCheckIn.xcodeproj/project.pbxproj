@@ -18,6 +18,21 @@
 		2E66B8071F829DF800DE0B0F /* iCheckInUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E66B8061F829DF800DE0B0F /* iCheckInUITests.m */; };
 		302AF73EB2C1645AF7707C24 /* libPods-iCheckIn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF646C9AB2AFB331AD38C6D0 /* libPods-iCheckIn.a */; };
 		47E1DA1FCBCFB2476BB6FEDC /* libPods-iCheckInUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9601D9DDD323BEB33A3CC35B /* libPods-iCheckInUITests.a */; };
+		8206783B1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png in Resources */ = {isa = PBXBuildFile; fileRef = 8206783A1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png */; };
+		820678411FD0980300DB7D38 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 820678401FD0980300DB7D38 /* Common.m */; };
+		829E01751FCF912900415A65 /* Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E01691FCF912800415A65 /* Services.m */; };
+		829E01761FCF912900415A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E016C1FCF912800415A65 /* AppDelegate.m */; };
+		829E01771FCF912900415A65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 829E016E1FCF912800415A65 /* GoogleService-Info.plist */; };
+		829E01781FCF912900415A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E01711FCF912900415A65 /* AppDelegate.m */; };
+		829E01791FCF912900415A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E01741FCF912900415A65 /* AppDelegate.m */; };
+		829E017D1FCF916A00415A65 /* GoogleLogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E017C1FCF916A00415A65 /* GoogleLogInView.m */; };
+		829E01891FCF9D1500415A65 /* WelcomePage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 829E01881FCF9D1500415A65 /* WelcomePage.xcassets */; };
+		829E018B1FCFAB9F00415A65 /* NND_Gardening.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 829E018A1FCFAB9F00415A65 /* NND_Gardening.jpeg */; };
+		829E018D1FCFAE5700415A65 /* NND_Logo_RGB.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 829E018C1FCFAE5700415A65 /* NND_Logo_RGB.jpg */; };
+		829E018F1FCFB20A00415A65 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 829E018E1FCFB20A00415A65 /* heart.png */; };
+		829E01911FCFB47000415A65 /* HEART AND FLOWER.png in Resources */ = {isa = PBXBuildFile; fileRef = 829E01901FCFB47000415A65 /* HEART AND FLOWER.png */; };
+		829E01941FCFBCE600415A65 /* NND_GardenPortrait.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 829E01921FCFBCE600415A65 /* NND_GardenPortrait.jpg */; };
+		829E01951FCFBCE600415A65 /* NND_Goodbye_lowres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 829E01931FCFBCE600415A65 /* NND_Goodbye_lowres.jpg */; };
 		A8E55695549FECFC5F2F5B6D /* libPods-iCheckInTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50530855DED9F136A1650D41 /* libPods-iCheckInTests.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +76,28 @@
 		5B06726CFBB2162DA2EECC9A /* Pods-iCheckIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCheckIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCheckIn/Pods-iCheckIn.release.xcconfig"; sourceTree = "<group>"; };
 		6D05A3DFF77667F0FE93D25A /* Pods-iCheckInTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCheckInTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCheckInTests/Pods-iCheckInTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E1DCA00AD1332BA6C7B9A39 /* Pods-iCheckIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCheckIn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCheckIn/Pods-iCheckIn.debug.xcconfig"; sourceTree = "<group>"; };
+		8206783A1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NND_Logo_Stacked_RGB.png; sourceTree = "<group>"; };
+		8206783D1FD0965900DB7D38 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		8206783F1FD0965900DB7D38 /* GoogleLogInViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleLogInViewProtocol.h; sourceTree = "<group>"; };
+		820678401FD0980300DB7D38 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		829E01681FCF912800415A65 /* Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
+		829E01691FCF912800415A65 /* Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Services.m; sourceTree = "<group>"; };
+		829E016B1FCF912800415A65 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		829E016C1FCF912800415A65 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		829E016E1FCF912800415A65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		829E01701FCF912900415A65 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		829E01711FCF912900415A65 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		829E01731FCF912900415A65 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		829E01741FCF912900415A65 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		829E017B1FCF916A00415A65 /* GoogleLogInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleLogInView.h; sourceTree = "<group>"; };
+		829E017C1FCF916A00415A65 /* GoogleLogInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleLogInView.m; sourceTree = "<group>"; };
+		829E01881FCF9D1500415A65 /* WelcomePage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WelcomePage.xcassets; sourceTree = "<group>"; };
+		829E018A1FCFAB9F00415A65 /* NND_Gardening.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NND_Gardening.jpeg; sourceTree = "<group>"; };
+		829E018C1FCFAE5700415A65 /* NND_Logo_RGB.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NND_Logo_RGB.jpg; sourceTree = "<group>"; };
+		829E018E1FCFB20A00415A65 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		829E01901FCFB47000415A65 /* HEART AND FLOWER.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HEART AND FLOWER.png"; sourceTree = "<group>"; };
+		829E01921FCFBCE600415A65 /* NND_GardenPortrait.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NND_GardenPortrait.jpg; sourceTree = "<group>"; };
+		829E01931FCFBCE600415A65 /* NND_Goodbye_lowres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NND_Goodbye_lowres.jpg; sourceTree = "<group>"; };
 		9601D9DDD323BEB33A3CC35B /* libPods-iCheckInUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCheckInUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01EDD3CE06C15075F87F7DA /* Pods-iCheckInUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCheckInUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCheckInUITests/Pods-iCheckInUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3242FDF9BD75D08D4D1F4F0 /* Pods-iCheckInTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCheckInTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCheckInTests/Pods-iCheckInTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +157,13 @@
 		2E66B7DE1F829DF800DE0B0F /* iCheckIn */ = {
 			isa = PBXGroup;
 			children = (
-				2E66B8151F829E7000DE0B0F /* Google */,
+				8206783C1FD0965900DB7D38 /* Protocols */,
+				829E016A1FCF912800415A65 /* Controllers */,
+				829E016F1FCF912900415A65 /* BussRepository */,
+				829E01671FCF912800415A65 /* Services */,
+				829E017A1FCF916A00415A65 /* Views */,
+				829E01721FCF912900415A65 /* DataModels */,
+				829E01841FCF9C5100415A65 /* Content */,
 				2E66B7DF1F829DF800DE0B0F /* AppDelegate.h */,
 				2E66B7E01F829DF800DE0B0F /* AppDelegate.m */,
 				2E66B7E21F829DF800DE0B0F /* ViewController.h */,
@@ -131,6 +174,7 @@
 				2E66B7F01F829DF800DE0B0F /* Info.plist */,
 				2E66B7F11F829DF800DE0B0F /* main.m */,
 				2E66B7E81F829DF800DE0B0F /* iCheckIn.xcdatamodeld */,
+				829E016D1FCF912800415A65 /* Google */,
 			);
 			path = iCheckIn;
 			sourceTree = "<group>";
@@ -153,11 +197,99 @@
 			path = iCheckInUITests;
 			sourceTree = "<group>";
 		};
-		2E66B8151F829E7000DE0B0F /* Google */ = {
+		8206783C1FD0965900DB7D38 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				8206783D1FD0965900DB7D38 /* Common.h */,
+				820678401FD0980300DB7D38 /* Common.m */,
+				8206783E1FD0965900DB7D38 /* GoogleLogInViewProtocol */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8206783E1FD0965900DB7D38 /* GoogleLogInViewProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				8206783F1FD0965900DB7D38 /* GoogleLogInViewProtocol.h */,
+			);
+			path = GoogleLogInViewProtocol;
+			sourceTree = "<group>";
+		};
+		829E01671FCF912800415A65 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				829E01681FCF912800415A65 /* Services.h */,
+				829E01691FCF912800415A65 /* Services.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		829E016A1FCF912800415A65 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				829E016B1FCF912800415A65 /* AppDelegate.h */,
+				829E016C1FCF912800415A65 /* AppDelegate.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		829E016D1FCF912800415A65 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				829E016E1FCF912800415A65 /* GoogleService-Info.plist */,
 			);
 			path = Google;
+			sourceTree = "<group>";
+		};
+		829E016F1FCF912900415A65 /* BussRepository */ = {
+			isa = PBXGroup;
+			children = (
+				829E01701FCF912900415A65 /* AppDelegate.h */,
+				829E01711FCF912900415A65 /* AppDelegate.m */,
+			);
+			path = BussRepository;
+			sourceTree = "<group>";
+		};
+		829E01721FCF912900415A65 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				829E01731FCF912900415A65 /* AppDelegate.h */,
+				829E01741FCF912900415A65 /* AppDelegate.m */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		829E017A1FCF916A00415A65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				829E017B1FCF916A00415A65 /* GoogleLogInView.h */,
+				829E017C1FCF916A00415A65 /* GoogleLogInView.m */,
+			);
+			name = Views;
+			path = iCheckIn/Views;
+			sourceTree = SOURCE_ROOT;
+		};
+		829E01841FCF9C5100415A65 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				829E01851FCF9C5100415A65 /* Graphics */,
+				829E01881FCF9D1500415A65 /* WelcomePage.xcassets */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		829E01851FCF9C5100415A65 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				8206783A1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png */,
+				829E01921FCFBCE600415A65 /* NND_GardenPortrait.jpg */,
+				829E01931FCFBCE600415A65 /* NND_Goodbye_lowres.jpg */,
+				829E01901FCFB47000415A65 /* HEART AND FLOWER.png */,
+				829E018E1FCFB20A00415A65 /* heart.png */,
+				829E018C1FCFAE5700415A65 /* NND_Logo_RGB.jpg */,
+				829E018A1FCFAB9F00415A65 /* NND_Gardening.jpeg */,
+			);
+			path = Graphics;
 			sourceTree = "<group>";
 		};
 		9FD18454B0101FF56B471C0B /* Pods */ = {
@@ -298,9 +430,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				829E018F1FCFB20A00415A65 /* heart.png in Resources */,
 				2E66B7EF1F829DF800DE0B0F /* LaunchScreen.storyboard in Resources */,
+				829E018D1FCFAE5700415A65 /* NND_Logo_RGB.jpg in Resources */,
+				8206783B1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png in Resources */,
+				829E01951FCFBCE600415A65 /* NND_Goodbye_lowres.jpg in Resources */,
+				829E01771FCF912900415A65 /* GoogleService-Info.plist in Resources */,
 				2E66B7EC1F829DF800DE0B0F /* Assets.xcassets in Resources */,
 				2E66B7E71F829DF800DE0B0F /* Main.storyboard in Resources */,
+				829E01941FCFBCE600415A65 /* NND_GardenPortrait.jpg in Resources */,
+				829E018B1FCFAB9F00415A65 /* NND_Gardening.jpeg in Resources */,
+				829E01891FCF9D1500415A65 /* WelcomePage.xcassets in Resources */,
+				829E01911FCFB47000415A65 /* HEART AND FLOWER.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,8 +621,14 @@
 			files = (
 				2E66B7EA1F829DF800DE0B0F /* iCheckIn.xcdatamodeld in Sources */,
 				2E66B7E41F829DF800DE0B0F /* ViewController.m in Sources */,
+				820678411FD0980300DB7D38 /* Common.m in Sources */,
+				829E017D1FCF916A00415A65 /* GoogleLogInView.m in Sources */,
+				829E01761FCF912900415A65 /* AppDelegate.m in Sources */,
 				2E66B7F21F829DF800DE0B0F /* main.m in Sources */,
+				829E01791FCF912900415A65 /* AppDelegate.m in Sources */,
 				2E66B7E11F829DF800DE0B0F /* AppDelegate.m in Sources */,
+				829E01751FCF912900415A65 /* Services.m in Sources */,
+				829E01781FCF912900415A65 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

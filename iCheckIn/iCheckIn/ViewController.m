@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
-
+#include "Common.h"
 @interface ViewController ()
 
+@property (strong, nonatomic)GoogleLogInView * loginView;
 @end
 
 @implementation ViewController
@@ -17,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    //_commonServices =[[Common alloc] init];
+    _loginView= [[GoogleLogInView alloc]initWithMainController:self andDelegateMethod:nil];
+    [self.view addSubview:_loginView.getLoginUIView];
+    [self.view bringSubviewToFront:_loginView.getLoginUIView];
+//    [self.view insertSubview:login.getLoginUIView atIndex:1];
 }
 
 
@@ -25,5 +31,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+//-(void)callBackFunctioniForGetStartedNew:(NSObject *)returnedPointer{
+//    
+//    NSLog(@"Test");
+//}
+//
 
 @end
