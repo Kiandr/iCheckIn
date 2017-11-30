@@ -121,10 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				2E66B8151F829E7000DE0B0F /* Google */,
-				2E66B8191F829E7100DE0B0F /* iCBusinessRepository */,
-				2E66B8161F829E7000DE0B0F /* iCController */,
-				2E66B8181F829E7000DE0B0F /* iCModels */,
-				2E66B8171F829E7000DE0B0F /* iCServices */,
 				2E66B7DF1F829DF800DE0B0F /* AppDelegate.h */,
 				2E66B7E01F829DF800DE0B0F /* AppDelegate.m */,
 				2E66B7E21F829DF800DE0B0F /* ViewController.h */,
@@ -162,34 +158,6 @@
 			children = (
 			);
 			path = Google;
-			sourceTree = "<group>";
-		};
-		2E66B8161F829E7000DE0B0F /* iCController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iCController;
-			sourceTree = "<group>";
-		};
-		2E66B8171F829E7000DE0B0F /* iCServices */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iCServices;
-			sourceTree = "<group>";
-		};
-		2E66B8181F829E7000DE0B0F /* iCModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iCModels;
-			sourceTree = "<group>";
-		};
-		2E66B8191F829E7100DE0B0F /* iCBusinessRepository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iCBusinessRepository;
 			sourceTree = "<group>";
 		};
 		9FD18454B0101FF56B471C0B /* Pods */ = {
