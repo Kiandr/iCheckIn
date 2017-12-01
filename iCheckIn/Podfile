@@ -19,6 +19,8 @@ target 'iCheckIn' do
    pod 'Firebase/RemoteConfig'
    pod 'Firebase/Storage'
    pod 'GoogleSignIn'
+   pod 'GoogleMaps'
+   pod 'GooglePlaces'
 
   target 'iCheckInTests' do
     inherit! :search_paths

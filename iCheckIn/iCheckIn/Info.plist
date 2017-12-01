@@ -32,6 +32,13 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>googlechromes</string>
+        <string>comgooglemaps</string>
+    </array>
+    
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -39,5 +46,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string> We would like to use your current location in the app to identify your position geographically. Please grant access on your wish to this app. </string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string> We would like to use your geo location while the application is in use. If you wish please grant access to the application to use your current location.</string>
 </dict>
 </plist>

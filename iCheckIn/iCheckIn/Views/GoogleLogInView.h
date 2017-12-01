@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
 #include "Common.h"
+@import CoreLocation;
+@import LocalAuthentication;
 @class GoogleLogInView;
 @protocol GoogleLogInViewProtocol <NSObject>
 
@@ -18,7 +20,7 @@
 
 @end
 
-@interface GoogleLogInView : UIViewController <NSObject,GoogleLogInViewProtocol>
+@interface GoogleLogInView : UIViewController <NSObject,GoogleLogInViewProtocol,CLLocationManagerDelegate>
 
 @property(assign, nonatomic) id<GoogleLogInViewProtocol> delegate;
 

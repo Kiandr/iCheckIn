@@ -5,10 +5,11 @@
 //  Created by Kian Davoudi-Rad on 2017-10-02.
 //  Copyright © 2017 Kian. All rights reserved.
 //
-
+@import GoogleMaps;
 #import "GoogleLogInView.h"
 
 @interface GoogleLogInView ()
+
 
 @property (strong, nonatomic) UIView* motherUIView;
 @property (strong, nonatomic) UIViewController* motherController;
@@ -17,10 +18,15 @@
 @property (strong, nonatomic) UIImageView *backGroundPicture;
 @property (strong, nonatomic) UIImageView *logo ;
 
-@property (strong, nonatomic)UITextField *welcomeMessageView ;
+@property (strong, nonatomic)UITextField *welcomeMessageView;
 @property (strong, nonatomic) NSString *welcomeMessageString;
 
+@property (strong, nonatomic)UIView *googleMapView;
+@property (strong, nonatomic) GMSMapView *mapView;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) GMSCameraPosition *camera;
 @end
+
 @implementation GoogleLogInView
 
 @synthesize delegate;
@@ -118,7 +124,11 @@
 - (void)turnCardwithAnimationCompletion:(NSObject*)inCompletion {
 
     
-    [UIView transitionWithView:_motherUIView
+    [UIView transitionFromView:_motherUIView toView:_googleMapView duration:0.7 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished){
+        // displayingFront = !displayingFront;
+        [self goToGoogleUIView ];
+    }]; /*
+     transitionWithView:_motherUIView
                       duration:0.7
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
@@ -128,10 +138,90 @@
                     }
                     completion:^(BOOL finished){
                        // displayingFront = !displayingFront;
+                        [self goToGoogleUIView ];
                     }];
+              */
     
 }
 
+- (void)goToGoogleUIView {
+    
+    // get access to local location
+    if ([CLLocationManager locationServicesEnabled]){
+        
+        NSLog(@"Location Services Enabled");
+        
+        if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"App Permission Denied"
+                                               message:@"To re-enable, please go to Settings and turn on Location Service for this app."
+                                              delegate:nil
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    
+
+    _googleMapView  = [[UIView alloc] initWithFrame:_motherController.view.frame];
+    [_googleMapView setBackgroundColor:[UIColor clearColor]];
+    UIImageView *googleMapLogo =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NND_Bubbles_web"]];
+    [googleMapLogo setFrame:(CGRectMake(0, 0, _motherController.view.frame.size.width, _motherController.view.frame.size.height/2))];
+    [_googleMapView insertSubview:googleMapLogo atIndex:0];
+    /*
+    // Create a GMSCameraPosition that tells the map to display the
+    // coordinate -33.86,151.20 at zoom level 6.
+    _camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+    _mapView = [GMSMapView mapWithFrame:_motherController.view.frame camera:_camera];
+    _mapView.myLocationEnabled = YES;
+    //self.view = mapView;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+    marker.title = @"Sydney";
+    marker.snippet = @"Australia";
+    marker.map = _mapView;
+
+    [_googleMapView addSubview:_mapView];
+    [_motherController.view addSubview:_googleMapView];
+     */
+    //_motherUIView =nil;
+    //_motherUIView = _googleMapView;
+    //NND_Goodbye_lowres
+    
+    
+    
+     
+     _locationManager = [[CLLocationManager alloc] init];
+     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+     _locationManager.delegate = self;
+     [_locationManager startUpdatingLocation];
+     
+      _camera = [GMSCameraPosition cameraWithTarget:CLLocationCoordinate2DMake(0, 0) zoom: 20];
+     _mapView = [GMSMapView mapWithFrame:CGRectMake(0, _motherController.view.frame.size.height/2, _motherController.view.frame.size.width, _motherController.view.frame.size.height/2) camera:_camera];
+     _mapView.myLocationEnabled = YES;
+     //[self.viewForMap addSubview:mapView];
+    
+    
+    
+    [_googleMapView insertSubview:_mapView atIndex:1]; //_mapView];
+    [_motherController.view addSubview:_googleMapView];
+
+     
+     
+    
+    
+    
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *currentLocation = [locations lastObject];
+    [_mapView animateToLocation:currentLocation.coordinate];
+}
 
 @end
 

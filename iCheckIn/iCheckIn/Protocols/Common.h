@@ -8,6 +8,7 @@
 
 @class common;
 @protocol commonProtocol<NSObject>
+
 @end
 
 @interface common:NSObject<NSObject>

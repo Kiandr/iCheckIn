@@ -20,6 +20,10 @@
 		47E1DA1FCBCFB2476BB6FEDC /* libPods-iCheckInUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9601D9DDD323BEB33A3CC35B /* libPods-iCheckInUITests.a */; };
 		8206783B1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png in Resources */ = {isa = PBXBuildFile; fileRef = 8206783A1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png */; };
 		820678411FD0980300DB7D38 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 820678401FD0980300DB7D38 /* Common.m */; };
+		820678461FD0D20300DB7D38 /* NND_Convertible_web.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820678421FD0D20300DB7D38 /* NND_Convertible_web.jpg */; };
+		820678471FD0D20300DB7D38 /* NND_Bird Sanctuary_002_web.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820678431FD0D20300DB7D38 /* NND_Bird Sanctuary_002_web.jpg */; };
+		820678481FD0D20300DB7D38 /* NND_Books_web.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820678441FD0D20300DB7D38 /* NND_Books_web.jpg */; };
+		820678491FD0D20300DB7D38 /* NND_Bubbles_web.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820678451FD0D20300DB7D38 /* NND_Bubbles_web.jpg */; };
 		829E01751FCF912900415A65 /* Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E01691FCF912800415A65 /* Services.m */; };
 		829E01761FCF912900415A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E016C1FCF912800415A65 /* AppDelegate.m */; };
 		829E01771FCF912900415A65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 829E016E1FCF912800415A65 /* GoogleService-Info.plist */; };
@@ -80,6 +84,10 @@
 		8206783D1FD0965900DB7D38 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		8206783F1FD0965900DB7D38 /* GoogleLogInViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleLogInViewProtocol.h; sourceTree = "<group>"; };
 		820678401FD0980300DB7D38 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		820678421FD0D20300DB7D38 /* NND_Convertible_web.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NND_Convertible_web.jpg; sourceTree = "<group>"; };
+		820678431FD0D20300DB7D38 /* NND_Bird Sanctuary_002_web.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "NND_Bird Sanctuary_002_web.jpg"; sourceTree = "<group>"; };
+		820678441FD0D20300DB7D38 /* NND_Books_web.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NND_Books_web.jpg; sourceTree = "<group>"; };
+		820678451FD0D20300DB7D38 /* NND_Bubbles_web.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NND_Bubbles_web.jpg; sourceTree = "<group>"; };
 		829E01681FCF912800415A65 /* Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
 		829E01691FCF912800415A65 /* Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Services.m; sourceTree = "<group>"; };
 		829E016B1FCF912800415A65 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -281,6 +289,10 @@
 		829E01851FCF9C5100415A65 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				820678431FD0D20300DB7D38 /* NND_Bird Sanctuary_002_web.jpg */,
+				820678441FD0D20300DB7D38 /* NND_Books_web.jpg */,
+				820678451FD0D20300DB7D38 /* NND_Bubbles_web.jpg */,
+				820678421FD0D20300DB7D38 /* NND_Convertible_web.jpg */,
 				8206783A1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png */,
 				829E01921FCFBCE600415A65 /* NND_GardenPortrait.jpg */,
 				829E01931FCFBCE600415A65 /* NND_Goodbye_lowres.jpg */,
@@ -435,11 +447,15 @@
 				829E018D1FCFAE5700415A65 /* NND_Logo_RGB.jpg in Resources */,
 				8206783B1FD083B200DB7D38 /* NND_Logo_Stacked_RGB.png in Resources */,
 				829E01951FCFBCE600415A65 /* NND_Goodbye_lowres.jpg in Resources */,
+				820678481FD0D20300DB7D38 /* NND_Books_web.jpg in Resources */,
 				829E01771FCF912900415A65 /* GoogleService-Info.plist in Resources */,
+				820678461FD0D20300DB7D38 /* NND_Convertible_web.jpg in Resources */,
+				820678471FD0D20300DB7D38 /* NND_Bird Sanctuary_002_web.jpg in Resources */,
 				2E66B7EC1F829DF800DE0B0F /* Assets.xcassets in Resources */,
 				2E66B7E71F829DF800DE0B0F /* Main.storyboard in Resources */,
 				829E01941FCFBCE600415A65 /* NND_GardenPortrait.jpg in Resources */,
 				829E018B1FCFAB9F00415A65 /* NND_Gardening.jpeg in Resources */,
+				820678491FD0D20300DB7D38 /* NND_Bubbles_web.jpg in Resources */,
 				829E01891FCF9D1500415A65 /* WelcomePage.xcassets in Resources */,
 				829E01911FCFB47000415A65 /* HEART AND FLOWER.png in Resources */,
 			);
@@ -505,6 +521,8 @@
 				"${PODS_ROOT}/FirebaseInvites/Resources/GINInviteResources.bundle",
 				"${PODS_ROOT}/FirebaseInvites/Resources/GPPACLPickerResources.bundle",
 				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";

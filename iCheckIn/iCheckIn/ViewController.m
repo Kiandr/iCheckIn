@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #include "Common.h"
+@import GooglePlaces;
+@import GoogleMaps;
 @interface ViewController ()
 
 @property (strong, nonatomic)GoogleLogInView * loginView;
@@ -18,11 +20,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //_commonServices =[[Common alloc] init];
     _loginView= [[GoogleLogInView alloc]initWithMainController:self andDelegateMethod:nil];
-    [self.view addSubview:_loginView.getLoginUIView];
+    //[self.view addSubview:_loginView.getLoginUIView];
     [self.view bringSubviewToFront:_loginView.getLoginUIView];
-//    [self.view insertSubview:login.getLoginUIView atIndex:1];
+    [self.view insertSubview:_loginView.getLoginUIView atIndex:1];
+    
+    
+    /*
+    UIView *test = [[UIView alloc] initWithFrame:self.view.frame];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+     GMSMapView *mapView = [GMSMapView mapWithFrame:self.view.frame camera:camera];
+    mapView.myLocationEnabled = YES;
+//    self.view = mapView;
+    test = mapView;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+    marker.title = @"Sydney";
+    marker.snippet = @"Australia";
+    [self.view addSubview:test];
+    */
 }
 
 
