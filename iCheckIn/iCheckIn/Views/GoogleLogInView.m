@@ -25,6 +25,8 @@
 @property (strong, nonatomic) GMSMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) GMSCameraPosition *camera;
+@property (strong, nonatomic)CLLocation *currentLocation;
+@property (assign, nonatomic)BOOL *updateVal;
 @end
 
 @implementation GoogleLogInView
@@ -38,6 +40,7 @@
         _motherController = incomingMotherController;
         //[incomingMotherController.view addSubview:_motherUIView];
         delegate = self;
+        _updateVal= 1;
         [self startUpSequence];
     }
     return self;
@@ -199,7 +202,7 @@
      _locationManager.delegate = self;
      [_locationManager startUpdatingLocation];
      
-      _camera = [GMSCameraPosition cameraWithTarget:CLLocationCoordinate2DMake(0, 0) zoom: 20];
+      _camera = [GMSCameraPosition cameraWithTarget:CLLocationCoordinate2DMake(0, 0) zoom: 13];
      _mapView = [GMSMapView mapWithFrame:CGRectMake(0, _motherController.view.frame.size.height/2, _motherController.view.frame.size.width, _motherController.view.frame.size.height/2) camera:_camera];
      _mapView.myLocationEnabled = YES;
      //[self.viewForMap addSubview:mapView];
@@ -219,8 +222,72 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    CLLocation *currentLocation = [locations lastObject];
-    [_mapView animateToLocation:currentLocation.coordinate];
+    _currentLocation = [locations lastObject];
+    [_mapView animateToLocation:_currentLocation.coordinate];
+    if (_updateVal){
+        [self drawDirection];
+        _updateVal = 0;
+    }
+}
+
+
+-(void)drawDirection{
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:49.2827291 longitude:-123.1207375];
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(loc.coordinate.latitude, loc.coordinate.longitude);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
+    marker.title = @"Bobby";
+    marker.map = _mapView;
+    
+    NSString *originString = [NSString stringWithFormat:
+                           @"%@?origin=%f,%f&destination=%f,%f&mode=driving&sensor=true&key=%@",
+                           @"https://maps.googleapis.com/maps/api/directions/json",
+                           _currentLocation.coordinate.latitude,
+                           _currentLocation.coordinate.longitude,
+                           loc.coordinate.latitude,
+                           loc.coordinate.longitude,
+                           @"AIzaSyB6Ph3Ydv3GCB3EswzVenn5q0llSg362gY"];
+    //NSString *originString = [NSString stringWithFormat:@"%f,%f", _currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude];
+//    NSString *destinationString = [NSString stringWithFormat:@"%f,%f", 123.12073750000002, 49.2827291];
+//    NSString *directionsAPI = @"https://maps.googleapis.com/maps/api/directions/json?";
+//    NSString *directionsUrlString = [NSString stringWithFormat:@"%@&origin=%@&destination=%@&mode=driving", directionsAPI, originString, destinationString];
+    NSURL *directionsUrl = [NSURL URLWithString:originString];
+    //    _camera = [GMSCameraPosition cameraWithLatitude:-33.86 longitude:151.20
+    
+    NSURLSessionDataTask *fetchDirectionsTask = [[NSURLSession sharedSession] dataTaskWithURL:directionsUrl completionHandler:
+                                                 ^(NSData *data, NSURLResponse *response, NSError *error)
+                                                 {
+                                                     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                                                     if(error)
+                                                     {
+                                                         //if(completionHandler)
+                                                           //  completionHandler(nil);
+                                                         NSLog(@"ERROR");
+                                                         return;
+                                                     }
+                                                     
+                                                     NSArray *routesArray = [json objectForKey:@"routes"];
+                                                     
+                                                     GMSPolyline *polyline = nil;
+                                                     if ([routesArray count] > 0)
+                                                     {
+                                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                                             NSDictionary *routeDict = [routesArray objectAtIndex:0];
+                                                             NSDictionary *routeOverviewPolyline = [routeDict objectForKey:@"overview_polyline"];
+                                                             NSString *points = [routeOverviewPolyline objectForKey:@"points"];
+                                                             GMSPolyline *polyline = [GMSPolyline polylineWithPath: [GMSPath pathFromEncodedPath: points]];
+                                                             polyline.map = _mapView;
+                                                             polyline.strokeColor = [UIColor colorWithRed:0/255.0 green:4/255.0 blue:255/255.0 alpha:1.0];
+                                                             polyline.strokeWidth = 4.0f;
+                                                         });
+                                                     };
+                                                     
+                                                     
+                                                     //if(completionHandler)
+                                                       //  completionHandler(polyline);
+                                                 }];
+    [fetchDirectionsTask resume];
+
+    
 }
 
 @end
