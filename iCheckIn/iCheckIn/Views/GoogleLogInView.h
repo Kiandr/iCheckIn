@@ -17,7 +17,8 @@
 
 @optional
 -(void)callBackFunctioniForGetStarted:(id*)returnedPointer;
-
+-(void)callBackFunctioniForChecIn:(id*)returnedPointer;
+-(void)callBackFunctioniForFinishButton:(id*)returnedPointer;
 @end
 
 @interface GoogleLogInView : UIViewController <NSObject,GoogleLogInViewProtocol,CLLocationManagerDelegate>

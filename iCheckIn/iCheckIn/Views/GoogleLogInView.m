@@ -15,18 +15,24 @@
 @property (strong, nonatomic) UIViewController* motherController;
 @property (strong, nonatomic) UITextView* welcomeMessage;
 @property (strong, nonatomic) UIButton *getStarted;
+@property (strong, nonatomic) UIButton *finishButton;
 @property (strong, nonatomic) UIImageView *backGroundPicture;
 @property (strong, nonatomic) UIImageView *logo ;
-
+@property (strong, nonatomic)    UIView *successView;
 @property (strong, nonatomic)UITextField *welcomeMessageView;
 @property (strong, nonatomic) NSString *welcomeMessageString;
-
+@property (strong, nonatomic)UIImageView *googleMapLogo;
 @property (strong, nonatomic)UIView *googleMapView;
 @property (strong, nonatomic) GMSMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) GMSCameraPosition *camera;
 @property (strong, nonatomic)CLLocation *currentLocation;
 @property (assign, nonatomic)BOOL *updateVal;
+@property (strong, nonatomic) UIButton *checkInButton;
+@property (strong,nonatomic) NSString *fName;
+@property(strong, nonatomic)UILabel *fromLabel;
+@property(strong, nonatomic) UILabel *successLable;
+@property(strong, nonatomic) NSString *successString;
 @end
 
 @implementation GoogleLogInView
@@ -37,11 +43,20 @@
 {
     self = [super init];
     if (self) {
+        delegate = self;
         _motherController = incomingMotherController;
         //[incomingMotherController.view addSubview:_motherUIView];
-        delegate = self;
         _updateVal= 1;
         [self startUpSequence];
+        
+        [self buildFirstName];
+        [self buildUIViewCheckIn];
+        
+        
+        
+        
+        
+        
     }
     return self;
 }
@@ -65,7 +80,7 @@
     [_welcomeMessageView setText:_welcomeMessageString];
     [_welcomeMessageView  setFrame:CGRectMake(    50,75,_motherUIView.frame.size.width-100 ,40 )] ;
     [_welcomeMessageView setFont:[UIFont boldSystemFontOfSize:20 ]];
-
+    [_welcomeMessage setEditable:NO];
     
     [_welcomeMessageView disabledBackground];
     _welcomeMessageView.textColor = [UIColor  colorWithDisplayP3Red:236 green:0 blue:140 alpha:1.0];
@@ -167,9 +182,8 @@
 
     _googleMapView  = [[UIView alloc] initWithFrame:_motherController.view.frame];
     [_googleMapView setBackgroundColor:[UIColor clearColor]];
-    UIImageView *googleMapLogo =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NND_Bubbles_web"]];
-    [googleMapLogo setFrame:(CGRectMake(0, 0, _motherController.view.frame.size.width, _motherController.view.frame.size.height/2))];
-    [_googleMapView insertSubview:googleMapLogo atIndex:0];
+    _googleMapLogo =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NND_Bubbles_web"]];
+    [_googleMapLogo setFrame:(CGRectMake(0, 0, _motherController.view.frame.size.width, _motherController.view.frame.size.height/2))];
     /*
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
@@ -205,11 +219,17 @@
       _camera = [GMSCameraPosition cameraWithTarget:CLLocationCoordinate2DMake(0, 0) zoom: 13];
      _mapView = [GMSMapView mapWithFrame:CGRectMake(0, _motherController.view.frame.size.height/2, _motherController.view.frame.size.width, _motherController.view.frame.size.height/2) camera:_camera];
      _mapView.myLocationEnabled = YES;
-     //[self.viewForMap addSubview:mapView];
+    [self BuildSuccessView];
     
     
+    // findme
+    [_googleMapView insertSubview:_googleMapLogo atIndex:0];
+    [_googleMapView insertSubview:_checkInButton atIndex:2];
+    [_googleMapView insertSubview:_mapView       atIndex:1];
+    [_googleMapView insertSubview:_fromLabel     atIndex:2];
+
     
-    [_googleMapView insertSubview:_mapView atIndex:1]; //_mapView];
+    //[_motherController.view addSubview:_successView];
     [_motherController.view addSubview:_googleMapView];
 
      
@@ -290,5 +310,168 @@
     
 }
 
+
+ ////
+ //@property(strong, nonatomic) UILabel *successLable;
+ //@property(strong, nonatomic) NSString *successString;
+
+ 
+ -(void)buildSuccessMessage{
+ //NSDate *today = [[NSDate alloc] initWithTimeIntervalSince1970:100];
+ 
+//NSDate *today = [NSDate date];
+//NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+//[dateFormat setDateFormat:@"dd/MM/yyyy"];
+//NSString *dateString = [dateFormat stringFromDate:today];
+
+_successString=[[NSString alloc] initWithString:@" You have successfully checkedin, please click finish button."];
+
+//UIFont * customFont = [UIFont fontWithName:CIDetectorAccuracy size:12]; //custom font
+NSString * text = _successString;
+
+//    CGSize labelSize = [text sizeWithFont:UIFontTextStyleBody constrainedToSize:CGSizeMake(380, 20) lineBreakMode:NSLineBreakByTruncatingTail];
+
+_successLable = [[UILabel alloc]initWithFrame:CGRectMake(0,[[UIApplication sharedApplication] statusBarFrame].size.height, [[UIScreen mainScreen] bounds].size.width, 80)];
+_successLable.text = text;
+_successLable.textColor =[UIColor whiteColor];
+//_fromLabel.font = customFont;
+_successLable.numberOfLines = 2;
+_successLable.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+_successLable.adjustsFontSizeToFitWidth = YES;
+_successLable.adjustsLetterSpacingToFitWidth = YES;
+_successLable.minimumScaleFactor = 10.0f/12.0f;
+_successLable.clipsToBounds = YES;
+_successLable.backgroundColor = [UIColor  colorWithDisplayP3Red:236 green:0 blue:140 alpha:1.0];
+
+_successLable.textAlignment = NSTextAlignmentCenter;
+_successLable.font = [_successLable.font fontWithSize:25];
+
+
+
+
+}
+
+ ////
+
+
+
+
+
+
+-(void)buildFirstName{
+    //NSDate *today = [[NSDate alloc] initWithTimeIntervalSince1970:100];
+/*    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
+    NSDate *today10am = [calendar dateFromComponents:components];
+    [components setMonth:4];
+    [components setDay:26];
+    [components setHour:10];
+    [components setSecond:3];
+    [components setWeekday:1];
+    
+  */
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd/MM/yyyy"];
+    NSString *dateString = [dateFormat stringFromDate:today];
+    
+    _fName=[[NSString alloc] initWithFormat:@" John Zenetti :  %@",dateString];
+    
+    //UIFont * customFont = [UIFont fontWithName:CIDetectorAccuracy size:12]; //custom font
+    NSString * text = _fName;
+    
+//    CGSize labelSize = [text sizeWithFont:UIFontTextStyleBody constrainedToSize:CGSizeMake(380, 20) lineBreakMode:NSLineBreakByTruncatingTail];
+    
+    _fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,[[UIApplication sharedApplication] statusBarFrame].size.height, [[UIScreen mainScreen] bounds].size.width, 40)];
+    _fromLabel.text = text;
+    _fromLabel.textColor =[UIColor whiteColor];
+    //_fromLabel.font = customFont;
+    _fromLabel.numberOfLines = 1;
+    _fromLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+    _fromLabel.adjustsFontSizeToFitWidth = YES;
+    _fromLabel.adjustsLetterSpacingToFitWidth = YES;
+    _fromLabel.minimumScaleFactor = 10.0f/12.0f;
+    _fromLabel.clipsToBounds = YES;
+    _fromLabel.backgroundColor = [UIColor  colorWithDisplayP3Red:236 green:0 blue:140 alpha:1.0];
+    
+    _fromLabel.textAlignment = NSTextAlignmentCenter;
+    _fromLabel.font = [_fromLabel.font fontWithSize:25];
+    
+    
+    
+    
+}
+
+
+-(void)buildUIViewCheckIn{
+    _checkInButton =[[UIButton alloc] init];
+    [_checkInButton setFrame:CGRectMake(  [[UIScreen mainScreen] bounds].size.width/2-(150/2),[[UIScreen mainScreen] bounds].size.height/2-80,   150,40  )  ];
+    [_checkInButton setTitle:(@"Check In Now") forState:UIControlStateNormal];
+    [_checkInButton setBackgroundColor:[UIColor colorWithDisplayP3Red:236 green:0 blue:140 alpha:1.0]];
+    [_checkInButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];// setTextColor:[UIColor brownColor]];
+    [_checkInButton setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];// setTextColor:[UIColor brownColor]];
+    [_checkInButton addTarget:self.delegate action:@selector(callBackFunctioniForChecIn:) forControlEvents:UIControlEventTouchUpInside];
+    [_checkInButton setEnabled:YES];
+    _checkInButton.adjustsImageWhenHighlighted = NO;
+    _checkInButton.selected= YES;
+    _checkInButton.layer.cornerRadius = 15; // this value vary as per your desire
+    _checkInButton.clipsToBounds = YES;
+    
+    
+    
+}
+
+-(void)BuildSuccessView{
+
+    _successView   = [[UIView alloc] initWithFrame:_motherController.view.frame];
+    [_successView setBackgroundColor:[UIColor clearColor]];
+    _successView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NND_Gardening"]];
+    [_successView setFrame:(CGRectMake(0, 0, _motherController.view.frame.size.width, _motherController.view.frame.size.height))];
+    
+    [self buildSuccessMessage];
+    [self builFinishButton];
+    
+    [_successView insertSubview:_successLable   atIndex:0];
+    [_successView insertSubview:_finishButton   atIndex:1];
+    //[_motherUIView addSubview:_successView];
+}
+
+-(void)callBackFunctioniForChecIn:(id*)returnedPointer{
+    NSLog(@"Here is the login button");
+    
+    [UIView transitionFromView:_googleMapView toView:_successView duration:0.7 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished){
+        // displayingFront = !displayingFront;
+        //[self goToGoogleUIView ];
+    }];
+    
+}
+
+-(void)builFinishButton{
+    _finishButton= [[UIButton alloc]init] ;
+    [_finishButton setFrame:CGRectMake(  [[UIScreen mainScreen] bounds].size.width/2-50,[[UIScreen mainScreen] bounds].size.height-40*2,   100,40  )  ] ;
+    [_finishButton setTitle:(@"Finish") forState:UIControlStateNormal];
+    [_finishButton setBackgroundColor:[UIColor colorWithDisplayP3Red:236 green:0 blue:140 alpha:1.0]];
+    [_finishButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];// setTextColor:[UIColor brownColor]];
+    [_finishButton setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];// setTextColor:[UIColor brownColor]];
+    [_finishButton addTarget:self.delegate action:@selector(callBackFunctioniForFinishButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_finishButton setEnabled:YES];
+    _finishButton.adjustsImageWhenHighlighted = NO;
+    _finishButton.selected= NO;
+    _finishButton.layer.cornerRadius = 15; // this value vary as per your desire
+    _finishButton.clipsToBounds = YES;
+}
+
+-(void)callBackFunctioniForFinishButton:(id*)returnedPointer{
+    
+    
+    [UIView transitionFromView:_successView toView:_motherUIView duration:0.7 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished){
+        // displayingFront = !displayingFront;
+        //[self goToGoogleUIView ];
+    }];
+    
+    
+    
+}
 @end
 
