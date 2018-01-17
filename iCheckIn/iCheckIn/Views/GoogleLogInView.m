@@ -33,6 +33,7 @@
 @property(strong, nonatomic)UILabel *fromLabel;
 @property(strong, nonatomic) UILabel *successLable;
 @property(strong, nonatomic) NSString *successString;
+@property(strong, nonatomic)UIImageView* successUIImageView;
 @end
 
 @implementation GoogleLogInView
@@ -252,12 +253,13 @@
 
 
 -(void)drawDirection{
+    
     CLLocation *loc = [[CLLocation alloc] initWithLatitude:49.2827291 longitude:-123.1207375];
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(loc.coordinate.latitude, loc.coordinate.longitude);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = @"Bobby";
     marker.map = _mapView;
-    
+    NSLog(@"Calling google===================================================== \n");
     NSString *originString = [NSString stringWithFormat:
                            @"%@?origin=%f,%f&destination=%f,%f&mode=driving&sensor=true&key=%@",
                            @"https://maps.googleapis.com/maps/api/directions/json",
@@ -423,18 +425,17 @@ _successLable.font = [_successLable.font fontWithSize:25];
 }
 
 -(void)BuildSuccessView{
-
-    _successView   = [[UIView alloc] initWithFrame:_motherController.view.frame];
-    [_successView setBackgroundColor:[UIColor clearColor]];
-    _successView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NND_Gardening"]];
-    [_successView setFrame:(CGRectMake(0, 0, _motherController.view.frame.size.width, _motherController.view.frame.size.height))];
-    
     [self buildSuccessMessage];
     [self builFinishButton];
+    _successView   = [[UIView alloc] initWithFrame:_motherController.view.frame];
+    _successUIImageView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NND_Gardening"]];
+    [_successUIImageView setFrame:(CGRectMake(0, 0, _motherController.view.frame.size.width, _motherController.view.frame.size.height))];
     
-    [_successView insertSubview:_successLable   atIndex:0];
-    [_successView insertSubview:_finishButton   atIndex:1];
-    //[_motherUIView addSubview:_successView];
+    
+    
+    [_successView insertSubview:_successUIImageView   atIndex:0];
+    [_successView insertSubview:_successLable        atIndex:1];
+    [_successView insertSubview:_finishButton         atIndex:2];
 }
 
 -(void)callBackFunctioniForChecIn:(id*)returnedPointer{
@@ -454,7 +455,7 @@ _successLable.font = [_successLable.font fontWithSize:25];
     [_finishButton setBackgroundColor:[UIColor colorWithDisplayP3Red:236 green:0 blue:140 alpha:1.0]];
     [_finishButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];// setTextColor:[UIColor brownColor]];
     [_finishButton setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];// setTextColor:[UIColor brownColor]];
-    [_finishButton addTarget:self.delegate action:@selector(callBackFunctioniForFinishButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_finishButton addTarget:self action:@selector(callBackFunctioniForFinishButton:) forControlEvents:UIControlEventTouchUpInside];
     [_finishButton setEnabled:YES];
     _finishButton.adjustsImageWhenHighlighted = NO;
     _finishButton.selected= NO;
@@ -464,11 +465,15 @@ _successLable.font = [_successLable.font fontWithSize:25];
 
 -(void)callBackFunctioniForFinishButton:(id*)returnedPointer{
     
-    
+    NSLog(@"Kian Test");
     [UIView transitionFromView:_successView toView:_motherUIView duration:0.7 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished){
-        // displayingFront = !displayingFront;
-        //[self goToGoogleUIView ];
+        _updateVal = 1;
+        //         displayingFront =;
+//        [self goToGoogleUIView ];
+     //
+        
     }];
+    [self viewDidLoad];
     
     
     
